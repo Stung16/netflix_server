@@ -33,7 +33,7 @@ module.exports = {
       phone: Sequelize.INTEGER,
       password: Sequelize.STRING(100),
       avatar: {
-        type: Sequelize.STRING(100),
+        type: Sequelize.STRING(200),
         defaultValue:
           "https://res.cloudinary.com/dtht61558/image/upload/v1714926727/fallback-avatar.155cdb2376c5d99ea151_clwp1n.jpg",
       },
