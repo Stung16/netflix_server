@@ -1,4 +1,5 @@
 require("dotenv").config();
+const pg = require("pg");
 module.exports = {
   development: {
     username: process.env.DB_USERNAME,
