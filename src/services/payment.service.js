@@ -36,8 +36,7 @@ class PaymentService {
     var orderInfo = `Thanh toan gói ${service} thoi gian: ${formattedDate}`;
     var partnerCode = "MOMO";
     var redirectUrl = "https://www.youtube.com/";
-    var ipnUrl =
-      "https://08f0-2402-800-61cd-d068-34d2-b046-b4f-dad7.ngrok-free.app/v1/api/callback";
+    var ipnUrl = "https://netflix-server-nbmt.onrender.com/v1/api/callback";
     var requestType = "captureWallet";
     var amount = Number(price);
     var orderId = partnerCode + new Date().getTime();
