@@ -3,7 +3,11 @@ const pg = require("pg");
 
 module.exports = {
   development: {
-    use_env_variable: "DATABASE_URL", // Chỉ truyền tên biến, không truyền giá trị
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST, // PHẢI ĐÚNG
+    port: process.env.DB_PORT || 5432,
     dialect: "postgres",
     dialectModule: pg,
     dialectOptions: {
@@ -14,7 +18,11 @@ module.exports = {
     },
   },
   test: {
-    use_env_variable: "DATABASE_URL",
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST, // PHẢI ĐÚNG
+    port: process.env.DB_PORT || 5432,
     dialect: "postgres",
     dialectModule: pg,
     dialectOptions: {
@@ -25,7 +33,11 @@ module.exports = {
     },
   },
   production: {
-    use_env_variable: "DATABASE_URL",
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST, // PHẢI ĐÚNG
+    port: process.env.DB_PORT || 5432,
     dialect: "postgres",
     dialectModule: pg,
     dialectOptions: {
