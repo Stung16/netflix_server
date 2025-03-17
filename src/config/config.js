@@ -3,36 +3,45 @@ const pg = require("pg");
 
 module.exports = {
   development: {
-    use_env_variable: "DATABASE_URL", // Chỉ truyền tên biến, không truyền giá trị
-    dialect: "postgres",
-    dialectModule: pg,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT || "postgres",
+    port: process.env.DB_PORT || 5432,
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false,
       },
     },
+    dialectModule: pg,
   },
   test: {
-    use_env_variable: "DATABASE_URL",
-    dialect: "postgres",
-    dialectModule: pg,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT || "postgres",
+    port: process.env.DB_PORT || 5432,
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false,
       },
     },
+    dialectModule: pg,
   },
   production: {
-    use_env_variable: "DATABASE_URL",
-    dialect: "postgres",
-    dialectModule: pg,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT || "postgres",
+    port: process.env.DB_PORT || 5432,
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false,
       },
     },
+    dialectModule: pg,
   },
 };
