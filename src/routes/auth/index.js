@@ -11,6 +11,7 @@ const {
   loginSchema,
   refreshTokenSchema,
 } = require("../../schemas/auth.schema");
+const { log } = require("console");
 
 /* GET home page. */
 router.post(
@@ -64,6 +65,7 @@ router.post("/runSeed", (req, res) => {
     if (err) {
       return res.status(500).json({ error: stderr });
     }
+    log(stdout);
     res.json({ message: "Seeder chạy thành công!", output: stdout });
   });
 });
