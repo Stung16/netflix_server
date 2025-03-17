@@ -1,5 +1,6 @@
 "use strict";
 const express = require("express");
+const { exec } = require("child_process");
 const router = express.Router();
 const AuthController = require("../../controllers/auth.controller");
 const asyncHandler = require("../../utils/asyncHandler");
@@ -58,5 +59,13 @@ router.post(
   validateRequest(forgotPassSchema),
   asyncHandler(AuthController.forgotPass)
 );
+router.post("/runSeed", (req, res) => {
+  exec("npx sequelize-cli db:seed:all", (err, stdout, stderr) => {
+    if (err) {
+      return res.status(500).json({ error: stderr });
+    }
+    res.json({ message: "Seeder chạy thành công!", output: stdout });
+  });
+});
 
 module.exports = router;
