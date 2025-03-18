@@ -37,7 +37,7 @@ class PaymentService {
     var partnerCode = "MOMO";
     var redirectUrl =
       "https://netflix-d9pt.onrender.com/signup/check-transition";
-    var ipnUrl = "https://netflix-server-nbmt.onrender.com/v1/api/callback";
+    var ipnUrl = "https://netflixserverapi.vercel.app/v1/api/callback";
     var requestType = "captureWallet";
     var amount = Number(price);
     var orderId = partnerCode + new Date().getTime();
